@@ -112,8 +112,12 @@ local function LoadSkin()
 			else
 				t:SetTextColor(1, 1, 1)
 			end
-			local color = ITEM_QUALITY_COLORS[rarity-1]
-			b.backdrop:SetBackdropBorderColor(color.r, color.g, color.b);
+			if rarity then
+				local color = ITEM_QUALITY_COLORS[rarity-1]
+				b.backdrop:SetBackdropBorderColor(color.r, color.g, color.b);
+			else
+				b.backdrop:SetBackdropBorderColor(1, 1, 0)
+			end
 		end
 	end	
 	hooksecurefunc('PetJournal_UpdatePetList', ColorSelectedPet)
